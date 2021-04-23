@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'com.mds'
+version '1.0-SNAPSHOT'
+description '員工管理系統'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework:spring-context:4.3.6.RELEASE'
+    implementation 'org.springframework:spring-webmvc:4.3.6.RELEASE'
+    implementation 'javax.servlet.jsp.jstl:jstl-api:1.2'
+    testImplementation 'junit:junit:4.11'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
