@@ -11,6 +11,11 @@
     <title>員工管理系統</title>
   </head>
   <body>
-  歡迎來到員工管理系統
+
+  <h1>BMI計算</h1>
+  請輸入身高(公尺)：<input type="text" name="weight"><br>
+  請輸入體重(公斤)：<input type="text" name="height"><br>
+  <p><input type="submit" name="submit" value="送出表單"></p>
+
   </body>
 </html>
