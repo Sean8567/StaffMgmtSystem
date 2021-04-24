@@ -5,13 +5,18 @@ import com.mds.service.StaffManagementService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.text.DecimalFormat;
 
 
 @Controller
 @RequestMapping(value = "luna")
 public class StaffManagementController {
-    @RequestMapping("/{name}")
+
+    @Resource
+    private StaffManagementService staffManagementService ;
+
+    @RequestMapping("{name}")
     public String greeting(@PathVariable("name") String name) {
         return "Hello, " + name;
     }
@@ -22,7 +27,7 @@ public class StaffManagementController {
                          @RequestParam("height") double height) {
         DecimalFormat df = new DecimalFormat("##.##");
         String s = df.format(weight / (height * height));
-        System.err.println();
+        System.err.println(); // ???
         return s;
     }
 
@@ -30,11 +35,10 @@ public class StaffManagementController {
     @RequestMapping(value = "lu", method = RequestMethod.POST)
     public String lu(@RequestParam("DEPT_NO") Integer deptNo) {
         try {
-            StaffManagementService staffManagementService = null;
             Dept dept = staffManagementService.selectList(deptNo);
-            String s = dept.getList();
-            return s;
+            return dept.getList();
         } catch (Exception e) {
+            // TODO 要拿掉 e.printStackTrace();
             e.printStackTrace();
             return "error! ";
         }

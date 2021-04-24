@@ -3,12 +3,14 @@ package com.mds.service.impl;
 import com.mds.database.DBProperties;
 import com.mds.database.model.Dept;
 import com.mds.service.StaffManagementService;
+import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Service
 public class StaffManagementServiceImpl implements StaffManagementService {
     public Dept selectList(Integer deptNo) throws SQLException {
         String sql = "SELECT * FROM DEPT WHERE DEPT_NO = ? ";

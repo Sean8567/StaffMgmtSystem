@@ -1,5 +1,6 @@
 package com.mds.database.model;
 
+// TODO 去改用 lombok
 public class Dept {
 
     private int DEPT_NO;
