@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 public class StaffManagementController {
-    @RequestMapping("/{name}")
-    public String greeting(@PathVariable("name") String name) {
-        return "Hello, " + name;
-    }
+  @RequestMapping("/{name}")
+  public String greeting(@PathVariable("name") String name) {
+    return "Hello, " + name;
+  }
 }
