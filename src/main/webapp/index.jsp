@@ -7,15 +7,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title>員工管理系統</title>
-  </head>
-  <body>
+</head>
+<body>
 
-  <h1>BMI計算</h1>
-  請輸入身高(公尺)：<input type="text" name="weight"><br>
-  請輸入體重(公斤)：<input type="text" name="height"><br>
-  <p><input type="submit" name="submit" value="送出表單"></p>
-
-  </body>
+<h1 align="center">員工管理系統</h1>
+<h3>歡迎來到員工管理系統~~請輸入帳號密碼登入系統~~</h3>
+<form action="${pageContext.request.contextPath}/luna/lu" method="post">
+    帳號：<input type="text" name="ACCOUNT_NO"><br>
+    密碼：<input type="password" name="PASSWORD"><br>
+    <p><input type="submit" name="submit" value="登入"> <input type="reset" name="reset" value="重填"></p>
+</form>
+</body>
 </html>

@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class SelectList {
     public static void main(String[] args) {
-        String sql = "SELECT * FROM DEPT";
+        String sql = "SELECT * FROM DEPT ";
         try (Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;DatabaseName=Sean", "sa", "1234");
              Statement statement = conn.createStatement()) {
             if(conn!=null){
