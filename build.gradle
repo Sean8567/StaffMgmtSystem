@@ -12,6 +12,8 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
     implementation 'org.springframework:spring-context:4.3.6.RELEASE'
     implementation 'org.springframework:spring-webmvc:4.3.6.RELEASE'
     implementation 'javax.servlet.jsp.jstl:jstl-api:1.2'
