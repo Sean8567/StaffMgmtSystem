@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.text.DecimalFormat;
+
 
 
 @Controller
@@ -17,6 +17,7 @@ public class StaffManagementController {
     @Resource
     private StaffManagementService staffManagementService;
 
+    //登入驗證
     @RequestMapping(value = "signIn", method = RequestMethod.POST)
     public ModelAndView signIn(@ModelAttribute("ACCOUNT_NO") String accountNo,
                                @ModelAttribute("PASSWORD") String passWord) {
@@ -40,9 +41,10 @@ public class StaffManagementController {
         }
     }
 
+    //查詢資料
     @RequestMapping(value = "manageInquiry", method = RequestMethod.POST)
     public ModelAndView manageInquiry(
-            @ModelAttribute("EMP_NO") int eNo,
+            @ModelAttribute("EMP_NO") String eNo,
             @ModelAttribute("EMP_NAME") String eName,
             @ModelAttribute("JOB") String job,
             @ModelAttribute("SEX") String sex,
@@ -54,51 +56,43 @@ public class StaffManagementController {
             @ModelAttribute("DEPT_NAME") String dName,
             @ModelAttribute("DEPT_PHONE") String dPhone) {
         try {
+            System.out.println("eno:"+eNo+"ename"+eName);
             Data data = staffManagementService.manageInquiry(eNo, eName, job, sex, idNo, phone, birthDate, entryDate, dNo, dName, dPhone);
-            //StringBuilder s = new StringBuilder();
-            //s.append(emp.getEMP_NAME()).append(emp.getACCOUNT_NO());
-            //System.out.println(s);
-            if (data.getAUTHORITY() <= 1) {
-                return new ModelAndView("queryResult", "Emp", data);
-            } else {
-                return new ModelAndView("/WEB-INF/query.jsp", "Emp", data);
-            }
+
+            StringBuilder s = new StringBuilder();
+            s.append(data.getEMP_NAME()).append(data.getJOB());
+            System.out.println(s);
+            return new ModelAndView("queryResult","Data",data);
         } catch (Exception e) {
             // TODO 要拿掉 e.printStackTrace();
-            //e.printStackTrace();
+            e.printStackTrace();
             System.out.println("ERROR");
             return null;
         }
     }
 
-    @RequestMapping(value = "result", method = RequestMethod.POST)
-    public Void result() {
-        ModelAndView mv = new ModelAndView("managerQuery");
-        return null;
+    //返回查詢
+    @RequestMapping(value = "backQuery", method = RequestMethod.POST)
+    public ModelAndView backQuery() {
+        return new ModelAndView("managerQuery");
     }
 
+    //按鈕跳轉新增資料頁面
     @RequestMapping(value = "addData", method = RequestMethod.POST)
     public ModelAndView addData() {
         return new ModelAndView("addData");
     }
 
+    //按鈕跳轉修改資料頁面
     @RequestMapping(value = "editData", method = RequestMethod.POST)
     public ModelAndView editData() {
         return new ModelAndView("editData");
     }
 
+    //按鈕跳轉刪除資料頁面
     @RequestMapping(value = "deleteData", method = RequestMethod.POST)
     public ModelAndView deleteData() {
         return new ModelAndView("deleteData");
-    }
-
-
-    @RequestMapping(value = "lunana", method = RequestMethod.POST)
-    public String lunana(@RequestParam("weight") double weight,
-                         @RequestParam("height") double height) {
-        DecimalFormat df = new DecimalFormat("##.##");
-        String s = df.format(weight / (height * height));
-        return s;
     }
 
 

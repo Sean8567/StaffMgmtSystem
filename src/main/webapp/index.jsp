@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%request.setCharacterEncoding("UTF-8");%>
 <html>
 <head>
     <title>員工管理系統</title>

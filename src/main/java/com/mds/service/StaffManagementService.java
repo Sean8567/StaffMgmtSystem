@@ -10,6 +10,6 @@ import java.sql.SQLException;
 public interface StaffManagementService {
     Dept selectList(Integer deptNo) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException;
     Emp signIn(String accountNo, String passWord) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException;
-    Data manageInquiry (int eNo,String eName,String job,String sex,String idNo,String phone,String birthDate,String entryDate,String dNo,String dName,
+    Data manageInquiry (String eNo,String eName,String job,String sex,String idNo,String phone,String birthDate,String entryDate,String dNo,String dName,
                         String dPhone) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException;
 }
