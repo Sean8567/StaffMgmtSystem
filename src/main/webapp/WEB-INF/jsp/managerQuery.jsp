@@ -3,34 +3,38 @@
 
 <html>
 <head>
-
     <title>員工管理系統</title>
+
 </head>
 <body>
 
 <h1 align="center">員工管理系統</h1>
 <div style="margin: 25px;">
-    <h3>${Emp.EMP_NAME}${Emp.JOB}您好~</h3>
     <h2>查詢資料</h2>
     <table>
         <tr>
             <td>
-                <form action="${pageContext.request.contextPath}/Sean/addData" method="post">
+                <form action="${pageContext.request.contextPath}/Sean/goToAdd" method="post">
                     <input type="submit" name="submit" value="前往新增資料"></form>
             </td>
             <td>
-                <form action="${pageContext.request.contextPath}/Sean/editData" method="post">
+                <form action="${pageContext.request.contextPath}/Sean/goToEdit" method="post">
                     <input type="submit" name="submit" value="前往修改資料"></form>
             </td>
             <td>
-                <form action="${pageContext.request.contextPath}/Sean/deleteData" method="post">
+                <form action="${pageContext.request.contextPath}/Sean/goToDelete" method="post">
                     <input type="submit" name="submit" value="前往刪除資料"></form>
+            </td>
+            <td>
+                <form action="${pageContext.request.contextPath}/" method="post">
+                    <p><input type="submit" name="submit" value="返回登入"></p>
+                </form>
             </td>
         </tr>
     </table>
     <br>
-    <form action="${pageContext.request.contextPath}/Sean/manageInquiry" method="post">
-        <table style="border: 2px black solid">
+    <form action="${pageContext.request.contextPath}/Sean/inQuiry" method="post">
+        <table>
             <tr>
                 <td>員工編號：</td>
                 <td><input type="text" name="EMP_NO" size="10" maxlength="10"></td>
